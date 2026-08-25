@@ -285,6 +285,21 @@ Run pi in any project. It advertises itself in `~/.accordion/sessions/` and appe
 Accordion's **Sessions** sidebar within ~1s. Click it (or run `/accordion` in that
 terminal) and its context populates live.
 
+### Claude Code and Codex tool
+
+The package also ships an `accordion-mcp` stdio server with one tool,
+`open_accordion`, which opens or focuses the native desktop GUI:
+
+```bash
+claude mcp add --scope user accordion -- accordion-mcp
+codex mcp add accordion -- accordion-mcp
+```
+
+If the desktop app is not installed in a standard location, set `ACCORDION_APP_PATH`
+for the server configuration. This tool does not intercept either host's live context:
+Claude Code transcripts remain read-only in the desktop app, and live folding remains
+available only for pi sessions until those hosts expose an equivalent context hook.
+
 Only one surface steers at a time, machine-wide across every session — the rest are live
 mirrors. If you open Accordion from a second tab or window while another is already
 driving, you'll see a one-time prompt to take control; everywhere else stays
